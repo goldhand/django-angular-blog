@@ -1,0 +1,50 @@
+{% verbatim %}
+<div ng-controller="PostDetailCtrl">
+        <!--Body content-->
+        <div>
+            <small class="pull-right">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Author :
+                    </dt>
+                    <dd>
+                        {{ post.owner }}
+                    </dd>
+                    <dt>
+                        Posted :
+                    </dt>
+                    <dd>
+                        {{ post.created }}
+                    </dd>
+
+                </dl>
+            </small>
+
+            <h1>
+                {{ post.title }}
+            </h1>
+
+            <div class="clearfix"></div>
+            <div class="content">
+                <p ng-bind-html="postContent">
+
+                </p>
+
+            </div>
+            <!--TODO: Style transition for previous scrolling and make buttons fixed
+            <a class="btn pull-left" href="{{ post._previous }}">Previous</a>
+            -->
+            <a class="btn pull-right" href="{{ post._next }}">Next</a>
+
+            <!--TODO: Figure this out. LOL JK. But seriously, can hack it but there is a better way
+            <ul>
+                <li ng-repeat="related_post in post.related_posts">
+                    <a href="related_post">{{ related_post }}</a>
+                </li>
+            </ul>
+            -->
+
+        </div>
+
+    </div>
+{% endverbatim %}

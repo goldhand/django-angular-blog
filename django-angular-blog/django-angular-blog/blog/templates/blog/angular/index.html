@@ -1,0 +1,92 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+   <div class="" ng-app="posts">
+    <div class="container">
+    <div class="row">
+        <div class="span3">
+            {% block branding %}<a class='brand' href='http://github.com/goldhand/'>@goldhand</a> | <a href='/'>django-rest-blog <span class="version">0.1</span></a>{% endblock %}
+            <div class="well hidden-phone">
+                <!--TODO:Update to bootstrap 3.0 so this can be placed after content for mobile only view-->
+                <div ng-controller="PostListCtrl">
+                <!--Sidebar content-->
+
+                <input ng-model="query" placeholder="search" class="search-query input-block-level">
+                    <!--
+                Sort by:
+                <select ng-model="orderProp" class="input-block-level">
+                    <option value="title">Alphabetical</option>
+                    <option value="created">Newest</option>
+                </select>
+                -->
+
+                <ul class="nav nav-stacked nav-pills">
+                    <li ng-repeat="post in posts.results | filter:query | orderBy:-orderProp">
+                        {% verbatim %}
+                        <a ng-click="updateUrl(post.id)">{{post.title}}</a>
+                        {% endverbatim %}
+                    </li>
+                </ul>
+                    <a ng-click="getPosts(posts.previous)" class="pull-left"><i class="icon-arrow-left"></i></a>
+
+                    <a ng-click="getPosts(posts.next)" class="pull-right"><i class="icon-arrow-right"></i></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="span9">
+            <div class="posts-animate-container">
+                <div ng-view class="post-detail-view"></div>
+            </div>
+        </div>
+   </div>
+    </div>
+   </div>
+{% endblock content %}
+
+
+{% block style %}
+    {{ block.super }}
+   <style>
+.posts-animate-container {
+  overflow:hidden;
+  min-height: 2000px;
+
+}
+
+.post-detail-view.ng-enter, .post-detail-view.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+  display:block;
+  width:100%;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+    background-color: #fff;
+}
+
+.posts-animate-container {
+  position:relative;
+}
+
+.post-detail-view.ng-enter {
+  left:100%;
+}
+.post-detail-view.ng-enter.ng-enter-active {
+  left:0;
+}
+
+.post-detail-view.ng-leave { }
+.post-detail-view.ng-leave.ng-leave-active {
+  left:-100%;
+}
+   </style>
+
+{% endblock style %}
