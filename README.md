@@ -1,5 +1,5 @@
 # Django Angular Blog
-A simple single page blog with (django-rest-framework)[https://github.com/tomchristie/django-rest-framework] and (AngularJS)[https://github.com/angular/angular.js]
+A simple single page blog with [django-rest-framework](https://github.com/tomchristie/django-rest-framework) and [AngularJS](https://github.com/angular/angular.js)
 
 
 
