@@ -1,8 +1,9 @@
-# django angular blog
-a simple single page blog with django-rest-framework and angularjs
+# Django Angular Blog
+A simple single page blog with (django-rest-framework)[https://github.com/tomchristie/django-rest-framework] and (AngularJS)[https://github.com/angular/angular.js]
 
 
-## quick setup [demo project]:
+
+## Quick Setup [demo project]:
 
     $ git clone https://github.com/goldhand/django-angular-blog.git
     $ cd django-angular-blog/django-angular-blog/
@@ -12,7 +13,7 @@ a simple single page blog with django-rest-framework and angularjs
     $ python manage.py runserver
 
 
-## sitemap:
+## Sitemap:
 
     /                   --angularjs application root
 
@@ -21,3 +22,6 @@ a simple single page blog with django-rest-framework and angularjs
         users/          --"user-list"
         categories/     --"category-list"
 }
+
+
+
