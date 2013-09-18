@@ -25,6 +25,6 @@ A simple single page blog with [django-rest-framework](https://github.com/tomchr
 
 ## Models:
 
-![Django AngularJS Blog Models](https://github.com/goldhand/django-angular-blog/models.png "Django AngularJS Blog Models")
+![Django AngularJS Blog Models](https://github.com/goldhand/django-angular-blog/raw/master/models.png "Django AngularJS Blog Models")
 
 
