@@ -12,6 +12,12 @@ A simple single page blog with [django-rest-framework](https://github.com/tomchr
     $ python manage.py syncdb
     $ python manage.py runserver
 
+### Create a new blog post:
+
+    $ curl -X POST http://127.0.0.1:8000/api/posts/ -d "title=[post.title]content=[post.content]" -u [username]:[password]
+
+Replace `[post.title]` with your post title. Same for everything between `[ ]` brackets
+
 
 ## Sitemap:
 
