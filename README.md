@@ -23,5 +23,8 @@ A simple single page blog with [django-rest-framework](https://github.com/tomchr
         categories/     --"category-list"
 }
 
+## Models:
+
+![Django AngularJS Blog Models](https://github.com/goldhand/django-angular-blog/models.png "Django AngularJS Blog Models")
 
 
