@@ -1,29 +1,39 @@
 {% verbatim %}
 
 <div ng-controller="PostListCtrl">
-            <!--Body content-->
+    <!--Body content-->
 
 
-        <div ng-repeat="post in posts.results | orderBy:-orderProp">
+    <div ng-repeat="post in posts.results | orderBy:-orderProp">
 
-                <h2>
-                    <a ng-click="updateUrl(post.id)">{{post.title}}</a>
-                    <small>
-                                @{{ post.owner }} |
-                                {{ post.created }}
-                    </small>
-                </h2>
+        <h2>
+            <a ng-click="updateUrl(post.id)">{{post.title}}</a>
+            <small>
+                @{{ post.owner }} |
+                {{ post.created }}
+            </small>
+        </h2>
 
-                <div class="clearfix"></div>
-                <div class="content">
-                    <p ng-bind-html="post.content">
+        <div class="clearfix"></div>
+        <div class="content">
+            <p ng-bind-html="post.content">
 
-                    </p>
-                </div>
-
-
+            </p>
         </div>
-    <a class="btn" ng-click="appendPosts(posts.next)">Load More</a>
+
+
+    </div>
+    <a class="hidden append-posts" ng-click="appendPosts(posts.next)">Load More</a>
 
 </div>
+<script>
+    $(window).scroll(function () {
+        if ($(window).scrollTop() >= ($(document).height() - 1000) - $(window).height()) {
+                // if is not loading data, start the call
+                $('.append-posts').trigger('click');
+
+        }
+    });
+
+</script>
 {% endverbatim %}

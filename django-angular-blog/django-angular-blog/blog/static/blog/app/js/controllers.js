@@ -5,7 +5,7 @@
 function PostListCtrl($scope, $routeParams, $location, $http, $sce, Post) {
     $scope.posts = Post.query(function (posts) {
         for (var i=0; i < posts.results.length; i++) {
-            $scope.posts.results[i].content = $sce.trustAsHtml(posts.results[i].content.split(' ', 50).join(' '));
+            $scope.posts.results[i].content = $sce.trustAsHtml(posts.results[i].content);
 
         }
 
@@ -20,13 +20,17 @@ function PostListCtrl($scope, $routeParams, $location, $http, $sce, Post) {
         });
     };
     $scope.appendPosts = function (url) {
+        if (!(url === null)) {
+
         $http.get(url).success(function(data) {
             for (var i=0; i < data.results.length; i++) {
-                data.results[i].content = $sce.trustAsHtml(data.results[i].content.split(' ', 50).join(' '));
+                data.results[i].content = $sce.trustAsHtml(data.results[i].content);
             }
             $scope.posts.results = $scope.posts.results.concat(data.results);
-            $scope.posts.next = data.next;
+
+                $scope.posts.next = data.next;
         });
+        }
     };
     $scope.orderProp = 'created';
 }
