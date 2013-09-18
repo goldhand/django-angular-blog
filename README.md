@@ -1,6 +1,6 @@
 # django angular blog
 a simple single page blog with django-rest-framework and angularjs
-=====================================================================
+
 
 ## quick setup [demo project]:
 
