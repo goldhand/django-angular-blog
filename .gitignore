@@ -16,3 +16,5 @@ deploy/*
 local_settings.py
 media/
 production_settings.py
+apache2/
+dev.db
