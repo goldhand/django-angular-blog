@@ -52,5 +52,10 @@ function PostDetailCtrl($scope, $routeParams, $http, $sce, Post) {
 
 //PhoneDetailCtrl.$inject = ['$scope', '$routeParams'];
 
+function AuthorCtrl($scope, $http) {
+    $http.get('/static/author/author.json').success(function(data) {
+        $scope.author = data;
+    });
+}
 
 

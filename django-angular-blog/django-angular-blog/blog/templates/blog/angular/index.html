@@ -7,8 +7,6 @@
     <div class="row">
         <div class="span3">
             {% block branding %}
-                <a class='brand' href='http://github.com/goldhand/'>@goldhand</a>
-                |
                 <a href='https://github.com/goldhand/django-angular-blog'
                    title="Django Angular Blog on Github">django-angular-blog
                     <span class="version">0.1</span>
@@ -41,6 +39,27 @@
 
                 </div>
             </div>
+
+        <div ng-controller="AuthorCtrl">
+    {% verbatim %}
+                    <p>Find me:</p>
+            <ul class="unstyled">
+                <li>
+                    <a rel="author" title='Will Farley on Google +' href="https://plus.google.com/111879116512519641920">Will Farley</a>
+                </li>
+                <li>
+                    <a title='{{ author.name }} on Github' href="{{ author.github }}">github</a>
+                </li>
+                <li>
+                    <a title='{{ author.name }} on Twitter' href="{{ author.twitter }}">twitter</a>
+                </li>
+                <li>
+                    <a rel="publisher" title='Web Power labs on Google +' href="https://plus.google.com/115216079399308798032">Find us on Google+</a>
+                </li>
+            </ul>
+    {% endverbatim %}
+        </div>
+
         </div>
         <div class="span9">
             <div class="posts-animate-container">
