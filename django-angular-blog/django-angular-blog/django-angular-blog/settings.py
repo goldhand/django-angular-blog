@@ -40,9 +40,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
-STATICFILES_DIRS = (
-    '/home/wpl/Workspace/django/django-angular-rest-blog/django-angular-blog/static',
-)
+STATICFILES_DIRS = ()
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -116,3 +114,14 @@ LOGGING = {
         },
     }
 }
+if DEBUG:
+    try:
+        from local_settings import *
+    except ImportError:
+        pass
+else:
+    try:
+        from production_settings import *
+    except ImportError:
+        pass
+
