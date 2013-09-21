@@ -14,7 +14,7 @@
                         Posted :
                     </dt>
                     <dd>
-                        {{ post.created }}
+                        {{ post.created | date:"medium" }}
                     </dd>
 
                 </dl>
@@ -34,7 +34,7 @@
             <!--TODO: Style transition for next scrolling and make buttons fixed
             <a class="btn pull-left" href="{{ post._next }}">Next</a>
             -->
-            <a class="btn pull-right" href="{{ post._previous }}">Previous</a>
+            <a class="btn pull-right" href="{{ post._next }}">Previous</a>
 
             <!--TODO: Figure this out. LOL JK. But seriously, can hack it but there is a better way
             <ul>

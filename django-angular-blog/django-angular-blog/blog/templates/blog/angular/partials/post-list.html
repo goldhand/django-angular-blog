@@ -10,7 +10,7 @@
             <a ng-click="updateUrl(post.id)">{{post.title}}</a>
             <small>
                 @{{ post.owner }} |
-                {{ post.created }}
+                {{ post.created | date:"medium" }}
             </small>
         </h2>
 
