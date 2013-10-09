@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% load url from future %}
+{% load rest_framework %}
+
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+    <div class="span3">
+        {% block content_left %}
+            <div ng-controller="AuthorCtrl">
+                {% verbatim %}
+                <p>Find me:</p>
+                <ul class="unstyled">
+                    <li>
+                        <a rel="author" title='Will Farley on Google +' href="https://plus.google.com/111879116512519641920">Will Farley</a>
+                    </li>
+                    <li>
+                        <a rel="author" title='Will Farley on Github' href="https://github.com/goldhand">Will on github</a>
+                    </li>
+                    <li>
+                        <a title='{{ author.name }} on Twitter' href="{{ author.twitter }}">Will on twitter</a>
+                    </li>
+                    <li>
+                        <a rel="publisher" title='Web Power labs on Google +' href="https://plus.google.com/115216079399308798032">Find us on Google+</a>
+                    </li>
+                </ul>
+                {% endverbatim %}
+            </div>
+        {% endblock content_left %}
+    </div>
+    <div class="span9">
+        {% block content_right %}
+        {% endblock content_right %}
+    </div>
+    </div>
+    </div>
+
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
+
+{% block script %}{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'blog/escaped_fragment/base.html' %}
+
+{% block content_right %}
+    {% for post in post_list %}
+    <div>
+        <h2>
+            <a href="{% url 'posts:detail' post.id %}">{{post.title}}</a>
+            <small>
+                @{{ post.owner }} |
+                {{ post.created|date:"M d, Y f:s A" }}
+            </small>
+        </h2>
+
+        <div class="clearfix"></div>
+        <div class="content">
+            <p>
+                {{ post.content|safe }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    {% if is_paginated %}
+<p>
+    {% if page_obj.has_previous %}
+    <a rel="prev" href="{{ request.path }}?page={{ page_obj.previous_page_number }}{% if request.REQUEST.order %}&order={{request.REQUEST.order }}{% endif %}">Previous</a>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    {% if page_obj.has_next %}
+    <a  rel="next"href="{{ request.path }}?page={{ page_obj.next_page_number }}{% if request.REQUEST.order %}&order={{request.REQUEST.order }}{% endif %}">Next</a>
+    {% endif %}
+</p>
+{% endif %}
+
+{% endblock content_right %}
+

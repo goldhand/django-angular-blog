@@ -33,11 +33,7 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <span href="/">
-                    {% block branding %}<a class='brand' href='http://django-rest-framework.org'>Django REST framework <span class="version">{{ version }}</span></a>
-                        |
-                        <a href=
-
-                    {% endblock %}
+                    {% block branding %}<a class='brand' href='http://django-rest-framework.org'>Django REST framework <span class="version">{{ version }}</span></a>{% endblock %}
 
                 </span>
                 <ul class="nav pull-right">
@@ -212,7 +208,6 @@
                 {% endif %}
             {% endif %}
 
-        </div>
         <!-- END content-main -->
 
     </div>
@@ -221,7 +216,6 @@
 
         <div id="push"></div>
 
-    </div>
 
     </div><!-- ./wrapper -->
 

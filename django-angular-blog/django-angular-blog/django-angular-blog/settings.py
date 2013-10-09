@@ -81,7 +81,9 @@ INSTALLED_APPS = (
     'django_extensions',
     'debug_toolbar',
     'rest_framework',
+    'crispy_forms',
     'blog',
+    'essays',
 )
 
 REST_FRAMEWORK = {
@@ -89,6 +91,7 @@ REST_FRAMEWORK = {
     'PAGINATE_BY': 10
 }
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 LOGGING = {

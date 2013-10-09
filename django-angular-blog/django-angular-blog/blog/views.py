@@ -1,5 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.views import generic
 
 from rest_framework import permissions, viewsets
 
@@ -40,7 +42,10 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 def angular_view(request):
-    return render(request, 'blog/angular/index.html')
+    if request.GET.get('_escaped_fragment_'):
+        return HttpResponseRedirect(request.GET.get('_escaped_fragment_'))
+    else:
+        return render(request, 'blog/angular/index.html')
 
 
 def angular_view_post_list(request):
@@ -50,6 +55,14 @@ def angular_view_post_list(request):
 def angular_view_post_detail(request):
     return render(request, 'blog/angular/partials/post-detail.html')
 
+
+class PostList(generic.ListView):
+    model = Post
+    paginate_by = 10
+
+
+class PostDetail(generic.DetailView):
+    model = Post
 
 
 

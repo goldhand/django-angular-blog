@@ -44,7 +44,10 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     posts = serializers.HyperlinkedRelatedField(many=True, view_name='post-detail')
+    essays = serializers.HyperlinkedRelatedField(many=True, view_name='essay-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'username', 'posts')
+        fields = ('id', 'url', 'username', 'posts', 'essays')
+
+

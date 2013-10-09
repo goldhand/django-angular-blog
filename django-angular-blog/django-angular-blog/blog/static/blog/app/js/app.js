@@ -1,9 +1,12 @@
 'use strict';
 
 /* App Module */
+angular.module('HashBangURLs', []).config(['$locationProvider', function($location) {
+  $location.hashPrefix('!');
+}]);
 
 //noinspection JSValidateTypes
-angular.module('posts', ['postsServices', 'ngRoute', 'ngAnimate']).
+angular.module('posts', ['postsServices', 'ngRoute', 'ngAnimate', 'HashBangURLs']).
 
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
