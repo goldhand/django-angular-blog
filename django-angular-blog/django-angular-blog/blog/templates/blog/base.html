@@ -23,7 +23,7 @@
     {% block footer %}
     {% endblock %}
 
-    {% block script %}
+    {% block head_script %}
 {{ block.super }}
         <script src="{% static 'blog/app/lib/angular-1.2.0-rc.2/angular.js' %}"></script>
         <script src="{% static 'blog/app/lib/angular-1.2.0-rc.2/angular.min.js' %}"></script>
@@ -34,8 +34,11 @@
         <script src="{% static 'blog/app/js/controllers.js' %}"></script>
         <script src="{% static 'blog/app/js/services.js' %}"></script>
         <script src="{% static 'blog/app/js/filters.js' %}"></script>
-        {% include 'blog/includes/google-analytics.html' %}
-    {% endblock %}
+    {% endblock head_script %}
+{% block script %}
+    {{ block.super }}
+    {% include 'blog/includes/google-analytics.html' %}
+{% endblock script %}
 {% comment %}
     <script src="{% static "rest_framework/js/jquery-1.8.1-min.js" %}"></script>
     <script src="{% static "rest_framework/js/bootstrap.min.js" %}"></script>

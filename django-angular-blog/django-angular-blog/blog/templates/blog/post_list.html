@@ -12,10 +12,7 @@
         </h2>
 
         <div class="clearfix"></div>
-        <div class="content">
-            <p>
-                {{ post.content|safe }}
-            </p>
+        <div class="content" ng-bind-html="post.content|safe">
         </div>
     </div>
     {% endfor %}

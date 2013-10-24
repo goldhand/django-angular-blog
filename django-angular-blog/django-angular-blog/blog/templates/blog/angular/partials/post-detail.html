@@ -7,28 +7,21 @@
                     <dt>
                         Author :
                     </dt>
-                    <dd>
-                        {{ post.owner }}
-                    </dd>
+                    <dd ng-bind="post.owner"></dd>
                     <dt>
                         Posted :
                     </dt>
-                    <dd>
-                        {{ post.created | date:"medium" }}
+                    <dd ng-bind="post.created | date:'medium'">
+
                     </dd>
 
                 </dl>
             </small>
 
-            <h1>
-                {{ post.title }}
-            </h1>
+            <h1 ng-bind="post.title"></h1>
 
             <div class="clearfix"></div>
-            <div class="content">
-                <p ng-bind-html="postContent">
-
-                </p>
+                <div class="content" ng-bind-html="postContent">
 
             </div>
             <!--TODO: Style transition for next scrolling and make buttons fixed

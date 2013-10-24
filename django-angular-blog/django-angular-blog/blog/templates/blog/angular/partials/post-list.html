@@ -7,10 +7,10 @@
     <div ng-repeat="post in posts.results | orderBy:-orderProp">
 
         <h2>
-            <a ng-click="updateUrl(post.id)">{{post.title}}</a>
+            <a ng-click="updateUrl(post.id)" ng-bind="post.title"></a>
             <small>
-                @{{ post.owner }} |
-                {{ post.created | date:"medium" }}
+                @<span ng-bind="post.owner"></span> |
+                <span ng-bind="post.created | date:'medium'"></span>
             </small>
         </h2>
 
