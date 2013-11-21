@@ -1,0 +1,41 @@
+{% extends 'blog/escaped_fragment/base.html' %}
+
+{% block content_right %}
+    <div>
+        <!--Body content-->
+        <div>
+            <small class="pull-right">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Author :
+                    </dt>
+                    <dd>
+                        {{ post.owner }}
+                    </dd>
+                    <dt>
+                        Posted :
+                    </dt>
+                    <dd>
+                        {{ post.created|date:"M d, Y f:s A" }}
+                    </dd>
+
+                </dl>
+            </small>
+
+            <h1>
+                {{ post.title }}
+            </h1>
+
+            <div class="clearfix"></div>
+            <div class="content">
+                <p>
+                    {{ post.content|safe }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock content_right %}
